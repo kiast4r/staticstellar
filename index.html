@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="tabTitle">🌺 * i n t e r s t e l l a r * 🌺</title>
+    <link id="tabIcon" rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://w3.org viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌺</text></svg>">
+    <style>
+        /* Y2K Coconut Girl Aesthetic Palette */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #ff7ebb 0%, #ffc5e3 40%, #76e1ff 100%);
+            --y2k-blue: #00c3ff;
+            --y2k-pink: #ff3b93;
+            --y2k-orange: #ff9100;
+            --window-bg: rgba(255, 255, 255, 0.85);
+            --retro-shadow: 5px 5px 0px #000000;
+        }
+
+        * { box-sizing: border-box; font-family: 'Comic Sans MS', 'Courier New', sans-serif; }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background: var(--bg-gradient);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Animated Hibiscus Floating Vectors */
+        .flower {
+            position: absolute;
+            font-size: 45px;
+            opacity: 0.25;
+            user-select: none;
+            pointer-events: none;
+            animation: floatSpin 12s linear infinite;
+        }
+        @keyframes floatSpin {
+            0% { transform: translateY(105vh) rotate(0deg); }
+            100% { transform: translateY(-10vh) rotate(360deg); }
+        }
+
+        /* Retro Windows Container */
+        .app-window {
+            background: var(--window-bg);
+            border: 3px solid #000;
+            box-shadow: var(--retro-shadow);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .title-bar {
+            background: linear-gradient(90deg, var(--y2k-pink), var(--y2k-blue));
+            padding: 8px 12px;
+            color: #fff;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #000;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        .window-btn-group span {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #000;
+            background: #fff;
+            margin-left: 4px;
+            border-radius: 3px;
+        }
+
+        .content { padding: 25px; text-align: center; }
+
+        h1 {
+            color: var(--y2k-pink);
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            text-shadow: 2px 2px 0px #fff, 4px 4px 0px var(--y2k-blue);
+            letter-spacing: 2px;
+        }
+
+        p { color: #333; font-weight: bold; margin-bottom: 25px; }
+
+        /* Search Input Deck */
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px 20px;
+            border: 3px solid #000;
+            border-radius: 25px;
+            font-size: 16px;
+            background: #fff;
+            box-shadow: inset 2px 2px 0px rgba(0,0,0,0.2);
+            outline: none;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: 3px solid #000;
+            border-radius: 25px;
+            background: var(--y2k-orange);
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 2px 2px 0px #000;
+            transition: all 0.1s ease;
+        }
+        button:active { transform: translate(2px, 2px); box-shadow: 0px 0px 0px #000; }
+
+        /* App Selection Deck Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .card {
+            background: #fff;
+            border: 3px solid #000;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 3px 3px 0px #000;
+            transition: transform 0.1s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            background: #fff3f9;
+            border-color: var(--y2k-pink);
+        }
+        .card .icon { font-size: 40px; margin-bottom: 8px; }
+        .card .title { font-weight: bold; font-size: 14px; color: #000; }
+
+        /* Utilities Toggle Switch Panel */
+        .utility-bar {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .util-btn { background: #fff; color: #000; font-size: 13px; padding: 6px 14px; }
+
+        /* High Performance Display Viewport Frame */
+        iframe {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            border: none; z-index: 99999;
+            background: #fff;
+            display: none;
+        }
+
+        /* Escape Button overlaying the active Proxy Frame */
+        #closeProxy {
+            position: fixed;
+            bottom: 20px; right: 20px;
+            z-index: 100000;
+            display: none;
+            background: var(--y2k-pink);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Decoration Grid elements -->
+    <div class="flower" style="left: 10%; animation-delay: 0s;">🌺</div>
+    <div class="flower" style="left: 30%; animation-delay: 4s;">🌸</div>
+    <div class="flower" style="left: 65%; animation-delay: 2s;">🌺</div>
+    <div class="flower" style="left: 85%; animation-delay: 7s;">🌸</div>
+
+    <!-- Interface Deck Frame -->
+    <div class="app-window" id="mainDashboard">
+        <div class="title-bar">
+            <span>✿~ tropical_portal.exe ~✿</span>
+            <div class="window-btn-group">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="content">
+            <h1>INTERSTELLAR</h1>
+            <p>⚡ surf the web safely with island vibes ⚡</p>
+            
+            <div class="search-bar">
+                <input type="text" id="urlInput" placeholder="Paste link or destination web address here...">
+                <button onclick="launchProxy()">Launch</button>
+            </div>
+
+            <div class="grid">
+                <div class="card" onclick="launchDirect('https://discord.com')">
+                    <div class="icon">💬</div>
+                    <div class="title">Discord App</div>
+                </div>
+                <div class="card" onclick="launchDirect('https://crazygames.com')">
+                    <div class="icon">🎮</div>
+                    <div class="title">CrazyGames</div>
+                </div>
+                <div class="card" onclick="launchDirect('https://poki.com')">
+                    <div class="icon">🕹️</div>
+                    <div class="title">Poki Games</div>
+                </div>
+                <div class="card" onclick="launchDirect('https://youtube.com')">
+                    <div class="icon">📺</div>
+                    <div class="title">YouTube</div>
+                </div>
+            </div>
+
+            <div class="utility-bar">
+                <button class="util-btn" onclick="toggleCloak()">🤫 Cloak Tab (Classroom)</button>
+                <button class="util-btn" onclick="alert('⚡ Proxy-VPN layer operational. Dynamic headers actively rewriting routing rules.')">🛡️ Security Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Proxy Viewer Viewport Sandbox -->
+    <iframe id="proxyFrame"></iframe>
+    <button id="closeProxy" onclick="exitProxy()">↩ Exit Proxy</button>
+
+    <script>
+        // Core Web Proxy Network router launch sequence
+        function launchProxy() {
+            const input = document.getElementById('urlInput').value.trim();
+            if (input) launchDirect(input);
+        }
+
+        function launchDirect(targetUrl) {
+            const frame = document.getElementById('proxyFrame');
+            const closeBtn = document.getElementById('closeProxy');
+            
+            // Format raw text blocks to standard web locations
+            if (!targetUrl.startsWith('http://') && !targetUrl.startsWith('https://')) {
+                targetUrl = 'https://' + targetUrl;
+            }
+            
+            // Encode traffic string natively through the Node target proxy middleware system
+            frame.src = `/service?url=${encodeURIComponent(targetUrl)}`;
+            frame.style.display = 'block';
+            closeBtn.style.display = 'block';
+        }
+
+        function exitProxy() {
+            const frame = document.getElementById('proxyFrame');
+            const closeBtn = document.getElementById('closeProxy');
+            frame.src = "about:blank";
+            frame.style.display = 'none';
+            closeBtn.style.display = 'none';
+        }
+
+        // Classroom Cloak Protocol (Disguises your tab profile in school dashboards)
+        let isCloaked = false;
+        function toggleCloak() {
+            const title = document.getElementById('tabTitle');
+            const icon = document.getElementById('tabIcon');
+            
+            if(!isCloaked) {
+                title.innerText = "Classes";
+                icon.setAttribute("href", "https://gstatic.com");
