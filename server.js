@@ -5,31 +5,31 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Host our Y2K themed public files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Intercept, unpack, and rewrite outbound restricted data feeds
+// Intercepts and formats proxy streams dynamically
 app.use('/service', (req, res, next) => {
     const targetUrl = req.query.url;
     if (!targetUrl) {
-        return res.status(400).send('Error: Provide a URL path pointer.');
+        return res.status(400).send('Error: Missing target URL parameter.');
     }
 
+    // Force a dummy base target to satisfy the middleware initializer
     createProxyMiddleware({
-        target: targetUrl,
+        target: 'https://google.com', 
         changeOrigin: true,
+        followRedirects: true,
+        // The router function overrides the dummy target with your actual destination URL
+        router: () => targetUrl, 
         pathRewrite: { '^/service': '' },
-        router: (req) => req.query.url,
-        logger: console,
         on: {
-            proxyRes: (proxyRes, req, res) => {
-                // Eradicate structural headers designed to block framing/embedding
+            proxyRes: (proxyRes) => {
+                // Instantly vaporises anti-framing rules so Discord/Games can render inside your window
                 delete proxyRes.headers['x-frame-options'];
                 delete proxyRes.headers['content-security-policy'];
                 delete proxyRes.headers['clear-site-data'];
             },
-            proxyReq: (proxyReq, req, res) => {
-                // Impersonate standard device requests
+            proxyReq: (proxyReq) => {
                 proxyReq.setHeader('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36');
             }
         }
@@ -37,5 +37,5 @@ app.use('/service', (req, res, next) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`🌺 Interstellar Hibiscus Online: http://localhost:${PORT}`);
+    console.log(`🌺 Proxy Engine Operational on Port ${PORT}`);
 });
