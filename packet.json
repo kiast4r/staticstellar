@@ -1,0 +1,13 @@
+{
+  "name": "hibiscus-proxy",
+  "version": "1.0.0",
+  "description": "Y2K Tropical Unblocked Proxy Portal",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "http-proxy-middleware": "^3.0.0"
+  }
+}
