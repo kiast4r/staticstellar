@@ -1,0 +1,9 @@
+/* Custom Retro-Y2K Pixel Cursor */
+html, body, input[type="text"] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://w3.org" width="32" height="32" viewBox="0 0 32 32"><path d="M0,0 L0,22 L6,16 L13,30 L17,28 L11,15 L18,15 Z" fill="%23ff3b93" stroke="%23000000" stroke-width="2" stroke-linejoin="miter" /></svg>'), auto !important;
+}
+
+/* Sparkly Hibiscus Hover Pointer for Buttons and Cards */
+a, button, .card, .util-btn, [onclick] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://w3.org" width="32" height="32" viewBox="0 0 32 32"><text y="24" font-size="24">🌺</text><circle cx="26" cy="8" r="2" fill="white"/><circle cx="6" cy="26" r="1.5" fill="white"/></svg>'), pointer !important;
+}
