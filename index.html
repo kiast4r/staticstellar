@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="tabTitle">🌺 * i n t e r s t e l l a r * 🌺</title>
-    <link rel="stylesheet" href="/cursor.css">
     <link id="tabIcon" rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://w3.org viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌺</text></svg>">
+    <link rel="stylesheet" href="/cursor.css">
     <style>
         /* Y2K Coconut Girl Aesthetic Palette */
         :root {
@@ -166,33 +166,6 @@
         }
         .util-btn { background: #fff; color: #000; font-size: 13px; padding: 6px 14px; border: 3px solid #000; border-radius: 25px; cursor: pointer; box-shadow: 2px 2px 0px #000; font-weight: bold; }
         .util-btn:active { transform: translate(2px, 2px); box-shadow: 0px 0px 0px #000; }
-
-        /* High Performance Display Viewport Frame */
-        iframe {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            border: none; z-index: 99999;
-            background: #fff;
-            display: none;
-        }
-
-        /* Escape Button overlaying the active Proxy Frame */
-        #closeProxy {
-            position: fixed;
-            bottom: 20px; right: 20px;
-            z-index: 100000;
-            display: none;
-            background: var(--y2k-pink);
-            padding: 12px 25px;
-            border: 3px solid #000;
-            border-radius: 25px;
-            color: white;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
-            box-shadow: 2px 2px 0px #000;
-        }
     </style>
 </head>
 <body>
@@ -246,35 +219,20 @@
         </div>
     </div>
 
-    <!-- Proxy Viewer Viewport Sandbox -->
-    <iframe id="proxyFrame"></iframe>
-    <button id="closeProxy" onclick="exitProxy()">↩ Exit Proxy</button>
-
+    <!-- Connection script tracking the unblocked standalone script router configuration -->
+    <script src="/uv.config.js"></script>
     <script>
         function launchProxy() {
             const input = document.getElementById('urlInput').value.trim();
-            if (input) launchDirect(input);
+            if (input && window.proxyConfig) {
+                window.proxyConfig.launchNewWindow(input);
+            }
         }
 
         function launchDirect(targetUrl) {
-            const frame = document.getElementById('proxyFrame');
-            const closeBtn = document.getElementById('closeProxy');
-            
-            if (!targetUrl.startsWith('http://') && !targetUrl.startsWith('https://')) {
-                targetUrl = 'https://' + targetUrl;
+            if (window.proxyConfig) {
+                window.proxyConfig.launchNewWindow(targetUrl);
             }
-            
-            frame.src = `/service?url=${encodeURIComponent(targetUrl)}`;
-            frame.style.display = 'block';
-            closeBtn.style.display = 'block';
-        }
-
-        function exitProxy() {
-            const frame = document.getElementById('proxyFrame');
-            const closeBtn = document.getElementById('closeProxy');
-            frame.src = "about:blank";
-            frame.style.display = 'none';
-            closeBtn.style.display = 'none';
         }
 
         let isCloaked = false;
@@ -284,3 +242,15 @@
             
             if(!isCloaked) {
                 title.innerText = "Classes";
+                icon.setAttribute("href", "https://gstatic.com");
+                alert("Tab cloaked as Google Classroom!");
+                isCloaked = true;
+            } else {
+                title.innerText = "🌺 * i n t e r s t e l l a r * 🌺";
+                icon.setAttribute("href", "data:image/svg+xml,<svg xmlns=%22http://w3.org viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌺</text></svg>");
+                isCloaked = false;
+            }
+        }
+    </script>
+</body>
+</html>
